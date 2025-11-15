@@ -1,0 +1,18 @@
+lalt - 1: skhd -t "\`"
+cmd - 1: skhd -t "\`"
+lalt - 2: skhd -t "@"
+lalt - 3: skhd -t "~"
+lalt - 4: skhd -t "$"
+ctrl + rshift - 7: skhd -t "\\"
+ctrl - 7: skhd -t "|"
+ctrl + rshift - 8: skhd -t "{"
+ctrl + rshift - 9: skhd -t "}"
+
+# ctrl - left: skhd -t "b"
+# ctrl - right: skhd -t "w"
+# 0X25: skhd -k "AA" # feiler
+
+
+# skhd -o
+# press l
+# output: 0X25

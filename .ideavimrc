@@ -1,0 +1,270 @@
+" REMAP ------------------------------------------
+
+let mapleader = " "
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>
+
+
+" BASIC ACTIONS
+
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>ww :w<CR>
+nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>x :x<CR>
+nnoremap <Leader>so :so %<CR>
+
+nnoremap Y y$
+
+" OPERATOR PENDING
+
+onoremap ig i"
+onoremap ag a"
+
+onoremap aG a'
+onoremap iG i'
+
+onoremap iv i[
+onoremap av a[
+
+vnoremap ig i"
+vnoremap ag a"
+
+vnoremap aG a'
+vnoremap iG i'
+
+vnoremap iv i[
+vnoremap av a[
+
+
+" NAVIGATE
+
+nnoremap <Leader>jsx /classes.root<CR>
+
+" nnoremap Å \{
+" nnoremap Æ \}
+"nnoremap å \'\[
+" cnoremap å \'\[
+" nnoremap æ \'\]
+" cnoremap æ \'\[
+
+" vim.keymap.set("n", "å", "'[", { desc = "Go to start of yanked selection" })
+" vim.keymap.set("n", "æ", "']", { desc = "Go to end of yanked selection" })
+
+nmap <A-,> <Action>(PreviousTab)
+nmap <A-.> <Action>(NextTab)
+
+nnoremap <A-l> :action GotoNextError<CR>
+nnoremap <A-h> :action GotoPreviousError<CR>
+nnoremap <leader>es :action ShowErrorDescription<CR>
+nnoremap <leader>* :action GotoNextElementUnderCaretUsage<CR>
+nnoremap <leader># :action GotoPreviousElementUnderCaretUsage<CR>
+nnoremap <leader>tb :action GitToolBox.BlameDetails<CR>
+
+
+" TRANSLATION
+
+nnoremap <leader>tt /__STRING<CR>
+nnoremap <Leader>tr /__STRING\"_ci
+inoremap <C-a> <esc>/__STRING\"_ci
+nnoremap <leader>t5 /__STRING<CR>BByi\"Wvi\"pgvu~gv:s/\\%V_/ /g<CR>
+
+" populate translation key value with key
+
+" turn normal string into translation key
+" vmap <leader>t8 it\('<esc>gvoa'\)<esc>
+" vnoremap <leader>t7 :s/\%V /_/g<CR>
+
+" vnoremap <leader>t5 <esc>`><esc>a')<esc>gvo<esc>it('<esc>vi'U
+vnoremap <leader>t4 :s/\%V /_/g<CR>gvUit('<esc>ea')<esc>:nohlsearch<CR>
+
+" https://stackoverflow.com/questions/773137/find-and-replace-within-selection-in-vi
+" https://vi.stackexchange.com/questions/1922/how-to-replace-only-within-visual-selection
+
+" OTHER
+
+vnoremap y ygv<Esc>
+
+nnoremap <Leader>diss ^D
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
+nnoremap <A-v> ggVG
+nnoremap <A-c> ggVGc
+nnoremap <A-y> :%y<CR>
+nnoremap <A-d> :%d<CR>
+
+nnoremap <C-d> 23j
+nnoremap <C-u> 23k
+vnoremap <C-d> 23j
+vnoremap <C-u> 23k
+
+nnoremap <C-e> 8j
+nnoremap <C-y> 8k
+vnoremap <C-e> 8j
+vnoremap <C-y> 8k
+
+nnoremap <C-s> \"s
+vnoremap <C-s> \"s
+
+nnoremap _ \"_
+vnoremap _ \"_
+
+nnoremap <leader>vaB vaBV
+nnoremap <leader>yaB vaBVy
+nnoremap <leader>daB vaBVd
+
+nnoremap <leader>vab vabV
+nnoremap <leader>yab vabVy
+nnoremap <leader>dab vabVd
+
+nnoremap <leader>vat vatV
+nnoremap <leader>yat vatVy
+nnoremap <leader>dat vatVd
+
+nnoremap <leader>viB viBV
+nnoremap <leader>yiB viBVy
+nnoremap <leader>diB viBVd
+
+nnoremap <leader>vib vibV
+nnoremap <leader>yib vibVy
+nnoremap <leader>dib vibVd
+
+
+" nnoremap <leader>dsl mo%dd`odd
+" nnoremap <leader>dsa % " Det funker ikke å bruke matchit-% i remaps :(
+
+nmap <Leader>fl <action>(RecentLocations)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap gr <Action>(ShowUsages)
+nmap <Leader>gr <Action>(GotoImplementation)
+nmap gd <action>(GotoDeclarationOnly)
+map <Leader>vca <Action>(Refactorings.QuickListPopupAction)
+map <leader>glgp <Action>(ActivateVersionControlToolWindow)
+
+" nmap <leader>hpp <action>(VcsShowPrevChangeMarker)
+" nmap <leader>hpn <action>(VcsShowNextChangeMarker)
+nmap <leader>hp <action>(VcsShowCurrentChangeMarker)
+" Vcs.RevertSelectedChanges
+nmap <leader>hr <action>(Vcs.RollbackChangedLines)
+
+nnoremap <leader><leader>dev :action Git.CompareWithBranch<CR>
+" nmap <leader><leader>dev <action>(Git.CompareWithBranch)
+
+" nnmap <leader>rep :%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" nmap <leader>dr <action>(GitCompareWithBranchAction)
+" nmap <leader>df <action>(hg4idea.CompareWithBranch)
+" nmap <leader>dg <action>(Vcs.Log.CompareRevisions)
+
+" nmap <leader>cha <Action>(LocalChangesView.ShowOnDoubleClick.EditorPreview)
+
+" close tab
+nmap <Leader>w2 :action CloseEditor<CR>
+
+" pipe character to replay 'w'-macro
+nnoremap \| @w
+
+
+" Define key mappings for different modes
+let modes = ['n', 'i', 'v', 'x', 'o', 't', '!']
+
+" Map <A-2> to @ with description "At"
+for mode in modes
+    execute mode . 'noremap <A-2> @'
+endfor
+
+" Map <A-3> to ~ with description "Tilde"
+for mode in modes
+    execute mode . 'noremap <A-3> ~'
+endfor
+
+" Map <A-4> to $ with description "Dollar sign"
+for mode in modes
+    execute mode . 'noremap <A-4> $'
+endfor
+
+" Map <A-5> to % with description "Percent"
+for mode in modes
+    execute mode . 'noremap <A-5> %'
+endfor
+
+" Map <A-|> to ` with description "Backtick"
+for mode in modes
+    execute mode . 'noremap <A-\|> `'
+endfor
+
+
+" SET -------------------------------
+
+set langmap=å[,æ]Å{,Æ}
+
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
+
+set scrolloff=6
+set linenumber
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed "use system clipboard
+
+set ignorecase
+set smartcase "capital case for case sensitive
+set incsearch "immediately search as you type
+" set inccommand=nosplit " funker ikke i ideavim
+
+
+" PACKAGES -----------------------------
+
+set surround "som i nvim surround, cs to change surrounding delimeters; visual mode + S' og ysiw( funker også
+set highlightedyank
+set matchit "html go to closing tag stuff
+set nerdtree
+set commentary
+set ideajoin
+
+
+
+
+
+
+
+
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Source your .vimrc
+source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)

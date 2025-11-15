@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Pål Stakvik
+	email = paalss94@gmail.com
+[init]
+        defaultBranch = main
+[core]
+        editor = nvim
+[rerere]
+        enabled = true

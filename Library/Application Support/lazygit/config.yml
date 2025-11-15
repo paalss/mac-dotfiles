@@ -1,0 +1,26 @@
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+gui:
+  showRandomTip: true
+  showNumstatInFilesView: true
+  showBottomLine: true
+  useHunkModeInStagingView: false
+git:
+  disableForcePushing: true
+  log:
+    showWholeGraph: false
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+os:
+  openLink: 'bash -C explorer.exe {{link}}'
+notARepository: quit
+keybinding:
+  universal:
+    nextTab: 'æ' # ]
+    prevTab: 'å' # [
+    # scrollUpMain: <pgup>
+    # scrollDownMain: <pgdown>
+    # scrollUpMain-alt1: K
+    # scrollDownMain-alt1: J
+    # scrollUpMain-alt2: <c-u>
+    # scrollDownMain-alt2: <c-d>
