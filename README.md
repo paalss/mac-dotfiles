@@ -15,7 +15,7 @@ Homebrew lockfile read & update:
 Install from brewfile (npm install):
 
 ```sh
-brew bundle install # or `brew bundle`. Maybe add `--global`
+brew bundle install # or `brew bundle`
 ```
 
 Check bundle (npm ls)
@@ -27,7 +27,7 @@ brew bundle check
 Create brewfile
 
 ```sh
-brew bundle dump --force --describe # Maybe add `--global`
+brew bundle dump --force --describe
 ```
 
 ---
