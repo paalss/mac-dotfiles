@@ -28,6 +28,9 @@ nnoremap J mzJ`z
 nnoremap <C-e> 11j
 nnoremap <C-y> 11k
 
+" Search for selection
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " OPERATOR PENDING
 
