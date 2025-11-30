@@ -4,6 +4,8 @@ let mapleader = " "
 set number
 set relativenumber
 set path=**
+set insearch
+set autoread
 
 
 " BASIC ACTIONS
